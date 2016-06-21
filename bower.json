@@ -21,7 +21,7 @@
     "test",
     "tests"
   ],
-  "dependencies": { 
+  "dependencies": {
     "polymer": "Polymer/polymer#^1.2.0",
     "google-map": "GoogleWebComponents/google-map#^1.1.10",
     "polymer-ts": "^0.1.26",
@@ -34,5 +34,5 @@
     "web-component-tester": "^4.0.0",
     "syntax-highlight": "^1.0.0"
   },
-  "version": "1.0.2"
+  "version": "1.0.4"
 }
