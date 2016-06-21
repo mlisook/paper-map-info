@@ -42,6 +42,17 @@ Normal Google Map infowindow behavior is supported, including moving the window 
 
 The element is meant to be fully composable so you can have anything inside, even neon-animated-pages, if you want.
 
+## Referencing Requirements
+
+The element is written in typescript and requires `polymer-ts`, which should come right after your `polymer` reference.
+```
+<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel-"import" href="bower_components/polymer/polymer.html" />
+<link rel-"import" href="bower_components/polymer-ts/polymer-ts.html" />
+<link rel-"import" href="bower_components/paper-map-info/paper-map-info.html" />
+```
+Of course, using the path to bower_components that applies to your project.
+
 ## Styling
 
 You can customize the paper-material background using the `--paper-map-info-mixin`.  You can customize the style of the beak (pointer from the card to the pin) with `--paper-map-info-beak-mixin`. Or even replace the default beak entirely with:
