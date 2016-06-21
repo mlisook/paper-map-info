@@ -37,7 +37,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         :host {
           display: block;
         }
-
         google-map {
           width: 500px;
           height: 400px;
@@ -45,7 +44,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </style>
       <style is="custom-style" include="iron-flex iron-flex-alignment iron-flex-factors iron-positioning"></style>
 
-      <google-map map="{{map}}" latitude="40.7555" longitude="-73.985" on-google-map-ready="_mapReady" single-info-window fit-to-markers>
+      <google-map map="{{map}}" latitude="40.7555" longitude="-73.985" on-google-map-ready="_mapReady" fit-to-markers>
         <template is="dom-repeat" items="[[meetings]]" as="meeting">
           <google-map-marker click-events latitude="[[meeting.latLng.lat]]" longitude="[[meeting.latLng.lng]]" on-google-map-marker-click="_markerClick" on-google-map-marker-open="_markerOpen">
           </google-map-marker>
@@ -65,7 +64,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </paper-map-info>
       </google-map>
       <template is="dom-repeat" items="[[attending]]" as="a">
-        <div>You are attending at [[a.place]], [[a.meetingTime]]</div>
+        <div>You are confirmed for a meeting at [[a.place]], [[a.meetingTime]]</div>
       </template>
     </template>
 
