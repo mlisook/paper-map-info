@@ -131,7 +131,7 @@ var paperMapInfo = (function (_super) {
     paperMapInfo.prototype._getMapSize = function () {
         var gm = this.map.getDiv();
         this._dim.map.width = gm.offsetWidth;
-        this._dim.map.height = gm.offsetWidth;
+        this._dim.map.height = gm.offsetHeight;
     };
     /**
      * initialize map event listeners
@@ -207,8 +207,8 @@ var paperMapInfo = (function (_super) {
             panby.y = placement.top - 10;
         }
         else {
-            if ((placement.top + this._dim.card.height) > this._dim.map.height) {
-                panby.y = (placement.top + this._dim.card.height) - this._dim.map.height + 10;
+            if ((placement.top + this._dim.card.height + this._dim.marker.y + 10) > this._dim.map.height) {
+                panby.y = (placement.top + this._dim.card.height + this._dim.marker.y) - this._dim.map.height + 20;
             }
         }
         if (panby.x != 0 || panby.y != 0) {
@@ -224,7 +224,7 @@ var paperMapInfo = (function (_super) {
         var result = (placement.top >= 0
             && placement.left >= 0
             && (placement.left + this._dim.card.width) < this._dim.map.width
-            && (placement.top + this._dim.card.height) < this._dim.map.height);
+            && (placement.top + this._dim.card.height + this._dim.marker.y + 10) < this._dim.map.height);
         return result;
     };
     /**
