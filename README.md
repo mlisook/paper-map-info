@@ -2,6 +2,10 @@
 
 An element that displays a <paper-material> backed infowindow-like card on a <google-map> element at the position of a map marker.
 
+## Live Demos
+
+At ([the Github Project Page](https://mlisook.github.io/paper-map-info)) you will find multiple live demos and the source code behind them.
+
 ## WHY!?
 
 In its current implementation (as of June 2016) the native infowindow does not support event handlers, so interactive infowindows are out.  For example:

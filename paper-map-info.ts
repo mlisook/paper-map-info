@@ -204,7 +204,7 @@ class paperMapInfo extends polymer.Base {
     private _getMapSize(): void {
         let gm = this.map.getDiv();
         this._dim.map.width = (<HTMLElement>gm).offsetWidth;
-        this._dim.map.height = (<HTMLElement>gm).offsetWidth;
+        this._dim.map.height = (<HTMLElement>gm).offsetHeight;
     }
 
     /**
@@ -285,8 +285,8 @@ class paperMapInfo extends polymer.Base {
         if (placement.top < 0) {
             panby.y = placement.top - 10;
         } else {
-            if ((placement.top + this._dim.card.height) > this._dim.map.height) {
-                panby.y = (placement.top + this._dim.card.height) - this._dim.map.height + 10;
+            if ((placement.top + this._dim.card.height + this._dim.marker.y + 10) > this._dim.map.height) {
+                panby.y = (placement.top + this._dim.card.height + this._dim.marker.y) - this._dim.map.height + 20;
             }
         }
         if (panby.x != 0 || panby.y != 0) {
@@ -303,7 +303,7 @@ class paperMapInfo extends polymer.Base {
         let result = (placement.top >= 0
             && placement.left >= 0
             && (placement.left + this._dim.card.width) < this._dim.map.width
-            && (placement.top + this._dim.card.height) < this._dim.map.height);
+            && (placement.top + this._dim.card.height + this._dim.marker.y + 10) < this._dim.map.height);
         return result;
     }
 
