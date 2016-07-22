@@ -380,6 +380,7 @@ class paperMapInfo extends polymer.Base {
                 this._initListeners();
                 this._getInfowindowSize();
                 this._getMapSize();
+                this._getMarkerSize();
                 let placement: Iplacement = this._setInfowindowPosition();
                 this.$.infocarddiv.style.opacity = this.fadeIn ? 0 : 1;
                 bk.style.opacity = 1;
