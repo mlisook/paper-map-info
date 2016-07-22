@@ -16,6 +16,8 @@ In its current implementation (as of June 2016) the native infowindow does not s
     </google-map-marker>
 This will not work because the on-tap binding is lost when the infowindow is built. There is an issue open ([#288](https://github.com/GoogleWebComponents/google-map/issues/288)), but as of now it is not resolved.
 
+Additionally, the infowindow does not support the use of CSS style classes under native shadow dom (classes work under shady dom).
+
 If you don't need event handlers in the infowindow _use the native infowindow_.  If you do, this element may help you.
 
 ## Normal Infowindow Functionality Supported
