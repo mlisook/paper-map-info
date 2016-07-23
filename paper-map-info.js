@@ -300,7 +300,7 @@ var paperMapInfo = (function (_super) {
                 _this._initListeners();
                 _this._getInfowindowSize();
                 _this._getMapSize();
-                _this._getMarkerSize();
+                _this._getMarkerSize(); // 1.0.7
                 var placement = _this._setInfowindowPosition();
                 _this.$.infocarddiv.style.opacity = _this.fadeIn ? 0 : 1;
                 bk_1.style.opacity = 1;
