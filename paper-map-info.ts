@@ -371,8 +371,8 @@ class paperMapInfo extends polymer.Base {
                 this.close();
             }
             this._marker = marker;
-            this._initListeners();
-            this.isShowing = true;
+            this._getMapSize();
+            this._getMarkerSize();
             this.$.infocarddiv.style.display = "block";
             if ((Polymer.dom(this.$.custombeakcontent) as any).getDistributedNodes().length > 0) {
                 this._bk = this.$.custombeak;
@@ -391,16 +391,15 @@ class paperMapInfo extends polymer.Base {
             // as polymer instantiates webcomponents in the <content>,
             // we will pause a few ms before instantiating the infowindow.
             setTimeout(() => {
-                this._initListeners();
                 this._getInfowindowSize();
-                this._getMapSize();
-                this._getMarkerSize();
                 let placement: Iplacement = this._setInfowindowPosition();
                 this.$.infocarddiv.style.opacity = this.fadeIn ? 0 : 1;
                 this._bk.style.opacity = "1";
+                this._initListeners();
                 if (this.fadeIn) {
                     this._doFadeIn();
                 }
+                this.isShowing = true;
                 if (!this._placementInBounds(placement)) {
                     this._panToShowInfowindow(placement);
                 }
