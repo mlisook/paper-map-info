@@ -13,8 +13,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var paperMapInfo = (function (_super) {
     __extends(paperMapInfo, _super);
+    /**
+     * script implements custom element <paper-map-info> as a Polymer element
+     *
+     *
+     */
     function paperMapInfo() {
-        _super.apply(this, arguments);
+        return _super.apply(this, arguments) || this;
     }
     /**
      * close infowindow
@@ -270,8 +275,8 @@ var paperMapInfo = (function (_super) {
                 this.close();
             }
             this._marker = marker;
-            this._initListeners();
-            this.isShowing = true;
+            this._getMapSize();
+            this._getMarkerSize();
             this.$.infocarddiv.style.display = "block";
             if (Polymer.dom(this.$.custombeakcontent).getDistributedNodes().length > 0) {
                 this._bk = this.$.custombeak;
@@ -291,62 +296,61 @@ var paperMapInfo = (function (_super) {
             // as polymer instantiates webcomponents in the <content>,
             // we will pause a few ms before instantiating the infowindow.
             setTimeout(function () {
-                _this._initListeners();
                 _this._getInfowindowSize();
-                _this._getMapSize();
-                _this._getMarkerSize();
                 var placement = _this._setInfowindowPosition();
                 _this.$.infocarddiv.style.opacity = _this.fadeIn ? 0 : 1;
                 _this._bk.style.opacity = "1";
+                _this._initListeners();
                 if (_this.fadeIn) {
                     _this._doFadeIn();
                 }
+                _this.isShowing = true;
                 if (!_this._placementInBounds(placement)) {
                     _this._panToShowInfowindow(placement);
                 }
             }, 33);
         }
     };
-    __decorate([
-        property({ type: Number, notify: true, value: 4 })
-    ], paperMapInfo.prototype, "elevation", void 0);
-    __decorate([
-        property({ type: Boolean, notify: true, value: false })
-    ], paperMapInfo.prototype, "fadeIn", void 0);
-    __decorate([
-        property({ type: Boolean, notify: true, value: false })
-    ], paperMapInfo.prototype, "isShowing", void 0);
-    __decorate([
-        property({ type: Object, notify: true, value: function () { return { card: { height: 10, width: 10 }, map: { height: 100, width: 100 }, marker: { x: 0, y: 42 }, beak: { width: 20, height: 20, customBeak: false } }; } })
-    ], paperMapInfo.prototype, "_dim", void 0);
-    __decorate([
-        property({ type: Object, notify: true, observer: '_mapChanged' })
-    ], paperMapInfo.prototype, "map", void 0);
-    __decorate([
-        property({ type: Array, notify: true, value: function () { return []; } })
-    ], paperMapInfo.prototype, "_mapListeners", void 0);
-    __decorate([
-        property({ type: Object, notify: true })
-    ], paperMapInfo.prototype, "_marker", void 0);
-    __decorate([
-        property({ type: Object, notify: true })
-    ], paperMapInfo.prototype, "_overlay", void 0);
-    __decorate([
-        property({ type: Object })
-    ], paperMapInfo.prototype, "_bk", void 0);
-    __decorate([
-        property({ type: Object })
-    ], paperMapInfo.prototype, "_nbk", void 0);
-    __decorate([
-        property({ type: Boolean, notify: true, value: false })
-    ], paperMapInfo.prototype, "_isCustomBeak", void 0);
-    __decorate([
-        property({ type: Boolean, notify: true, value: false })
-    ], paperMapInfo.prototype, "_watchingSize", void 0);
-    paperMapInfo = __decorate([
-        component('paper-map-info')
-    ], paperMapInfo);
     return paperMapInfo;
 }(polymer.Base));
+__decorate([
+    property({ type: Number, notify: true, value: 4 })
+], paperMapInfo.prototype, "elevation", void 0);
+__decorate([
+    property({ type: Boolean, notify: true, value: false })
+], paperMapInfo.prototype, "fadeIn", void 0);
+__decorate([
+    property({ type: Boolean, notify: true, value: false })
+], paperMapInfo.prototype, "isShowing", void 0);
+__decorate([
+    property({ type: Object, notify: true, value: function () { return { card: { height: 10, width: 10 }, map: { height: 100, width: 100 }, marker: { x: 0, y: 42 }, beak: { width: 20, height: 20, customBeak: false } }; } })
+], paperMapInfo.prototype, "_dim", void 0);
+__decorate([
+    property({ type: Object, notify: true, observer: '_mapChanged' })
+], paperMapInfo.prototype, "map", void 0);
+__decorate([
+    property({ type: Array, notify: true, value: function () { return []; } })
+], paperMapInfo.prototype, "_mapListeners", void 0);
+__decorate([
+    property({ type: Object, notify: true })
+], paperMapInfo.prototype, "_marker", void 0);
+__decorate([
+    property({ type: Object, notify: true })
+], paperMapInfo.prototype, "_overlay", void 0);
+__decorate([
+    property({ type: Object })
+], paperMapInfo.prototype, "_bk", void 0);
+__decorate([
+    property({ type: Object })
+], paperMapInfo.prototype, "_nbk", void 0);
+__decorate([
+    property({ type: Boolean, notify: true, value: false })
+], paperMapInfo.prototype, "_isCustomBeak", void 0);
+__decorate([
+    property({ type: Boolean, notify: true, value: false })
+], paperMapInfo.prototype, "_watchingSize", void 0);
+paperMapInfo = __decorate([
+    component('paper-map-info')
+], paperMapInfo);
 paperMapInfo.register();
 //# sourceMappingURL=paper-map-info.js.map
