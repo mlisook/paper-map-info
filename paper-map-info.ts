@@ -396,10 +396,10 @@ class paperMapInfo extends polymer.Base {
                 this.$.infocarddiv.style.opacity = this.fadeIn ? 0 : 1;
                 this._bk.style.opacity = "1";
                 this._initListeners();
+                this.isShowing = true;
                 if (this.fadeIn) {
                     this._doFadeIn();
                 }
-                this.isShowing = true;
                 if (!this._placementInBounds(placement)) {
                     this._panToShowInfowindow(placement);
                 }
