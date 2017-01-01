@@ -301,10 +301,10 @@ var paperMapInfo = (function (_super) {
                 _this.$.infocarddiv.style.opacity = _this.fadeIn ? 0 : 1;
                 _this._bk.style.opacity = "1";
                 _this._initListeners();
+                _this.isShowing = true;
                 if (_this.fadeIn) {
                     _this._doFadeIn();
                 }
-                _this.isShowing = true;
                 if (!_this._placementInBounds(placement)) {
                     _this._panToShowInfowindow(placement);
                 }
